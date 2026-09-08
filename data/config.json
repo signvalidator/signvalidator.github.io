@@ -1,0 +1,32 @@
+{
+  "clusters": {
+    "testnet": {
+      "rpc": "https://api.testnet.solana.com",
+      "identity": "s1gnuvZuXbczZ5x1JhZt2MmfBezARGxpuNjqSprc7yL",
+      "vote": "voteQWqezTb2Z87e3dnJarSAVc6ALT5owEhWnwnALQR",
+      "nodeExtra": {
+        "location": "Eschborn, Hesse, DE",
+        "asn": "AS395201 Allnodes Inc"
+      },
+      "slotMs": 200
+    },
+    "mainnet": {
+      "rpc": [
+        "https://solana-rpc.publicnode.com",
+        "https://solana.leorpc.com/?api_key=FREE"
+      ],
+      "identity": "hzmsfsWAitir5a6C1yWc34b8hGcNwA5HGRbDP7a83GD",
+      "vote": null,
+      "nodeExtra": {},
+      "ws": [
+        "wss://solana-rpc.publicnode.com",
+        "wss://api.mainnet-beta.solana.com"
+      ],
+      "slotMs": 300
+    }
+  },
+  "poll": {
+    "lightSeconds": 60
+  },
+  "defaultSource": "testnet"
+}

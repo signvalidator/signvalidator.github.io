@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>hz.ms</title>
+<meta name="description" content="hz.ms — Solana validator">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="stylesheet" href="css/site.css?v=__V__">
+<script>window.HZ = __CONFIG__; (function(){ var t = new URLSearchParams(location.search).get("theme"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; })();</script>
+</head>
+<body>
+<div class="stage">
+  <section class="strip" aria-label="Summary">
+    <h1><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect x="1.5" y="1.5" width="61" height="61" rx="13" fill="#0f150e" stroke="#9caf80" stroke-width="2.4"/><path d="M12 40h7V24h8v16h8V24h8v16h7" fill="none" stroke="#d0f79b" stroke-width="3.6" stroke-linejoin="miter" stroke-linecap="butt"/><circle cx="50" cy="40" r="4.4" fill="#d0f79b" opacity=".25"/><circle cx="50" cy="40" r="2.4" fill="#eaffc4"/></svg>hz.ms</h1>
+    <div class="facts" id="facts">__FACTS__</div>
+    <div class="addrs" id="addrs">__ADDRS__</div>
+  </section>
+
+  <div class="device" id="device">
+    <div class="deck">
+      <div class="screen-wrap">
+        <div class="bezel">
+          <div class="screen" id="screen">
+            <canvas id="cv" aria-label="Slot timing roll"></canvas>
+            <div class="bar top">
+              <span class="src" id="srcText"></span>
+              <span class="sp"></span>
+              <span id="slotText"></span>
+              <span class="ep" id="epText"></span>
+              <span id="liveText" class="dim"></span>
+            </div>
+            <div class="nosig" id="nosig" hidden><b>NO SIGNAL</b><span id="nosigWhy"></span></div>
+            <div class="curbox" id="curbox" hidden></div>
+            <div class="meas" id="meas"></div>
+            <div class="bar bottom">
+              <span class="c1" id="b1"></span>
+              <span class="c2" id="b2"></span>
+              <span class="dim" id="b3"></span>
+              <span class="sp"></span>
+              <span id="clkText"></span>
+            </div>
+            <div class="page" id="page" hidden></div>
+          </div>
+        </div>
+        <div class="softkeys" id="softkeys">
+          <button class="softkey" data-i="0" aria-label="Side key 1"></button>
+          <button class="softkey" data-i="1" aria-label="Side key 2"></button>
+          <button class="softkey" data-i="2" aria-label="Side key 3"></button>
+          <button class="softkey" data-i="3" aria-label="Side key 4"></button>
+          <button class="softkey" data-i="4" aria-label="Side key 5"></button>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="group">
+          <div class="glabel">Pages</div>
+          <div class="keys two">
+            <button class="key" data-menu="stake" aria-pressed="false"><span class="cap"></span><span class="lbl">Stake</span></button>
+            <button class="key" data-menu="tech" aria-pressed="false"><span class="cap"></span><span class="lbl">Tech</span></button>
+          </div>
+        </div>
+        <div class="group">
+          <div class="glabel">Display</div>
+          <div class="keys">
+            <button class="key" id="kRun" aria-pressed="true"><span class="cap"></span><span class="lbl">Run</span></button>
+            <button class="key" id="kMeasure" aria-pressed="false"><span class="cap"></span><span class="lbl">Numbers</span></button>
+            <button class="key ch1" id="kCh1" aria-pressed="true"><span class="cap"></span><span class="lbl">CH 1</span></button>
+            <button class="key ch2" id="kCh2" aria-pressed="true"><span class="cap"></span><span class="lbl">CH 2</span></button>
+          </div>
+        </div>
+        <div class="group two">
+          <div>
+            <div class="glabel">Source</div>
+            <div class="keys two">
+              <button class="key" data-src="mainnet" aria-pressed="false"><span class="cap"></span><span class="lbl">Mainnet</span></button>
+              <button class="key" data-src="testnet" aria-pressed="true"><span class="cap"></span><span class="lbl">Testnet</span></button>
+            </div>
+          </div>
+          <div>
+            <div class="glabel">Zoom</div>
+            <div class="knobrow">
+              <button class="knob" id="knob" aria-label="Window: click, scroll or arrows" style="--rot:0deg"></button>
+              <div class="readout"><span class="lbl">Window</span><span class="val" id="tbVal"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="jacks" aria-hidden="true">
+          <div class="bnc probe"><span class="tag">Probe</span><i class="jack"><b class="plug"></b></i><span class="cable"></span></div>
+          <div class="bnc c1"><span class="tag">1</span><i class="jack"><b class="plug"></b></i><span class="cable"></span></div>
+          <div class="bnc c2"><span class="tag">2</span><i class="jack"><b class="plug"></b></i><span class="cable"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<noscript><style>.device{display:none}</style></noscript>
+__SNAPSHOT_TAG__
+<script type="module">
+  // Lazy: the summary strip above is static HTML; the instrument (one versioned bundle) loads after first paint.
+  const go = () => { const s = document.createElement('script'); s.src = 'js/hz.js?v=__V__'; s.onload = () => hzBoot({ config: window.HZ, snapshot: window.HZ_SNAPSHOT || null, snapshotUrl: 'data/snapshot.json?v=__V__' }); document.head.appendChild(s); };
+  setTimeout(go, 0);
+</script>
+</body>
+</html>
